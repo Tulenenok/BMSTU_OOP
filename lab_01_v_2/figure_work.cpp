@@ -28,7 +28,6 @@ err_t load_figure(figure_t &figure, filename_t filename)
     return rc;
 }
 
-// почему принимает не фигуру, а набор точек и набор связей
 err_t draw_figure(points_t const &points, links_t const &links, canvas_t canvas)
 {
     if ((points.data == NULL) || (links.data == NULL))

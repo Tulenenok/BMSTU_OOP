@@ -1,7 +1,7 @@
 #ifndef FIGURE_WORK_H
 #define FIGURE_WORK_H
 
-#include "read_file.h"
+#include "read_figure.h"
 #include "draw_figure.h"
 #include "change_figure.h"
 

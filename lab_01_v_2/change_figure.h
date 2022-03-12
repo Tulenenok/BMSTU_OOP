@@ -3,7 +3,7 @@
 
 #include <math.h>
 #include "error_list.h"
-#include "read_file.h"
+#include "read_figure.h"
 
 #define PI 3.1415
 #define TO_RADIANS 360

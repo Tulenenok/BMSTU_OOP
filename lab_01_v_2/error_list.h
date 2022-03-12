@@ -1,8 +1,6 @@
 #ifndef ERROR_LIST_H
 #define ERROR_LIST_H
 
-#include <QMessageBox>
-
 enum Errors
 {
     OK,

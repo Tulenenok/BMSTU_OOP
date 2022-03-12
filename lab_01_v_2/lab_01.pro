@@ -15,9 +15,10 @@ SOURCES += \
     draw_figure.cpp \
     error_list.cpp \
     figure_work.cpp \
+    geom_primitives.cpp \
     main.cpp \
     mainwindow.cpp \
-    read_file.cpp
+    read_figure.cpp
 
 HEADERS += \
     canvas.h \
@@ -26,8 +27,9 @@ HEADERS += \
     draw_figure.h \
     error_list.h \
     figure_work.h \
+    geom_primitives.h \
     mainwindow.h \
-    read_file.h
+    read_figure.h
 
 FORMS += \
     mainwindow.ui

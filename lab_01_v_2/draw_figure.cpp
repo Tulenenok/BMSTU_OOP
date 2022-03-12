@@ -1,6 +1,6 @@
 #include "draw_figure.h"
 #include "ui_mainwindow.h"
-#include "read_file.h"
+#include "read_figure.h"
 
 
 static err_t draw_figure_side(link_dots_t link, points_t points, canvas_t canvas)

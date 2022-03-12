@@ -1,5 +1,6 @@
 #include "error_list.h"
 
+#include <QMessageBox>
 
 void catch_error(err_t error)
 {

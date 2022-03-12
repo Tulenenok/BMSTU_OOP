@@ -2,7 +2,7 @@
 #define CANVAS_H
 
 #include "ui_mainwindow.h"
-#include "read_file.h"
+#include "read_figure.h"
 
 using graph_canvas = QGraphicsScene;
 

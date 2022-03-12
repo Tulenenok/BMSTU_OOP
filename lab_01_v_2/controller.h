@@ -1,6 +1,8 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
+#include "figure_work.h"
+
 enum Actions {
     DRAW,
     LOAD,

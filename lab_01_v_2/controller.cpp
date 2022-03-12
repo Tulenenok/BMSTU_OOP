@@ -1,5 +1,4 @@
 #include "controller.h"
-#include "figure_work.h"
 
 err_t select_action(action_t action, event_t event)
 {
@@ -25,7 +24,7 @@ err_t select_action(action_t action, event_t event)
     else if (action == QUIT)
         figure_free(figure);
 
-    else:
+    else
         rc = ERR_EXTRA_ERROR;
 
     return rc;
