@@ -2,7 +2,8 @@
  * Примечания
  *
  * Какие операторы хочется перегрузить:
- *   [], -, +, =, -=, +=, ==, !=, *, *=, /, /=
+ *   todo: *=, /=
+ *   done: [], -, +, =, -=, +=, ==, !=, *, /
  */
 
 #ifndef MY_LAB_02_VECTOR_H
@@ -33,31 +34,84 @@ public:
 
     ~Vector() override;
 
-    T& operator[](const size_t ind) const;
+    // []
+    T& operator[](const size_t ind);
+    const T& operator[](const size_t ind) const;
+    //
 
+    // -
     Vector<T> operator-() const;
     Vector<T> operator-(const Vector<T> &vector) const;
     Vector<T> operator-(const T &num) const;
-
     template<typename OtherT>
     decltype(auto) operator-(const Vector<OtherT> &vector) const;
     template<typename OtherT>
     decltype(auto) operator-(const OtherT &num) const;
+    //
 
+    // +
     Vector<T> operator+() const;
     Vector<T> operator+(const Vector<T> &vector) const;
     Vector<T> operator+(const T &num) const;
-
     template<typename OtherT>
     decltype(auto) operator+(const Vector<OtherT> &vector) const;
     template<typename OtherT>
     decltype(auto) operator+(const OtherT &num) const;
+    //
 
+    // *
+    Vector<T> operator*(const Vector<T> &vector) const;
+    Vector<T> operator*(const T &num) const;
+    template<typename OtherT>
+    decltype(auto) operator*(const Vector<OtherT> &vector) const;
+    template<typename OtherT>
+    decltype(auto) operator*(const OtherT &num) const;
+    //
 
+    // /
+    template<typename OtherT>
+    decltype(auto) operator/(const Vector<OtherT> &vector) const;
+    template<typename OtherT>
+    decltype(auto) operator/(const OtherT &num) const;
+    //
+
+    // =
     Vector<T> &operator=(const Vector<T> &vector);
+    Vector<T> &operator=(std::initializer_list<T> list);
+    Vector<T> &operator=(Vector<T> &&vector) noexcept;
+    //
 
+    // -=
+    Vector<T> &operator-=(const Vector<T> &vector);
+    Vector<T> &operator-=(const T &num);
+    template<typename OtherT>
+    Vector<T> &operator-=(const Vector<OtherT> &vector);
+    template<typename OtherT>
+    Vector<T> &operator-=(const OtherT &num);
+    //
+
+    // +=
+    Vector<T> &operator+=(const Vector<T> &vector);
+    Vector<T> &operator+=(const T &num);
+    template<typename OtherT>
+    Vector<T> &operator+=(const Vector<OtherT> &vector);
+    template<typename OtherT>
+    Vector<T> &operator+=(const OtherT &num);
+    //
+
+    // *=
+    template<typename OtherT>
+    Vector<T> &operator*=(const Vector<OtherT> &vector);
+    template<typename OtherT>
+    Vector<T> &operator*=(const OtherT &num);
+    //
+
+    // == !=
     template<typename OtherT>
     bool operator==(const Vector<OtherT> &vector) const;
+    template<typename OtherT>
+    bool operator!=(const Vector<OtherT> &vector) const;
+    //
 
 protected:
     void allocateMemory(const size_t size);
