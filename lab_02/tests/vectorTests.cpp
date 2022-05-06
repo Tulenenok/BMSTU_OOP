@@ -394,6 +394,56 @@ static void division_equal_overload_vector_tests(int &rc, int &test_number)
     }
 }
 
+static void scalar_overload_vector_tests(int &rc, int &test_number)
+{
+    {
+        // 37
+        Vector<int> v1 = {1, -2, 3};
+        Vector<int> v2 = {1, -2, 0};
+        int res = v1 & v2;
+        rc += print_result(res == 5, test_number);
+    }
+
+    {
+        // 38
+        Vector<int> v1 = {1, -2, 3};
+        Vector<double> v2 = {1.5, 0, -1.5};
+        double res = v1 & v2;
+        rc += print_result(res == -3, test_number);
+    }
+}
+
+static void vec_prod_overload_vector_tests(int &rc, int &test_number)
+{
+    {
+        // 39
+        Vector<int> v1 = {1, 2, 3};
+        Vector<int> v2 = {1, 1, 2};
+        Vector<int> res(v1 ^ v2);
+        Vector<int> perf = {1, 1, -1};
+        rc += print_result(res == perf, test_number);
+    }
+
+    {
+        // 40
+        Vector<double> v1 = {1.1, 0, 3};
+        Vector<int> v2 = {0, 10, 20};
+        Vector<double> res(v1 ^ v2);
+        Vector<int> perf = {-41, -41, -41};
+        rc += print_result(res == perf, test_number);
+    }
+
+    //неробит
+//    {
+//        // 40
+//        Vector<double> v1 = {1.1, 0, 3};
+//        Vector<int> v2 = {0, 10, 20};
+//        Vector<int> res(v1 ^= v2);
+//        Vector<int> perf = {-41, -41, -41};
+//        rc += print_result(res == perf, test_number);
+//    }
+}
+
 int overload_vector_tests()
 {
     int rc = 0;
@@ -410,6 +460,8 @@ int overload_vector_tests()
     division_overload_vector_tests(rc, test_number);
     multiply_equal_overload_vector_tests(rc, test_number);
     division_equal_overload_vector_tests(rc, test_number);
+    scalar_overload_vector_tests(rc, test_number);
+    vec_prod_overload_vector_tests(rc, test_number);
 
     printf("Count tests %d, count errors: %d\n\n", test_number - 1, rc);
 

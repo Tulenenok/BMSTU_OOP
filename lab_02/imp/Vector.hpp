@@ -391,7 +391,6 @@ template<typename T>
 template<typename OtherT>
 Vector<T> &Vector<T>::operator*=(const OtherT &num)
 {
-
     for(size_t i = 0; i < this->size; i++)
         (*this)[i] *= num;
 
@@ -401,6 +400,8 @@ Vector<T> &Vector<T>::operator*=(const OtherT &num)
 template<typename T>
 Vector<T> &Vector<T>::operator/=(const T &num)
 {
+    checkDivisionByZero(num, __LINE__);
+
     for(size_t i = 0; i < this->size; i++)
         (*this)[i] /= num;
 
@@ -411,12 +412,96 @@ template<typename T>
 template<typename OtherT>
 Vector<T> &Vector<T>::operator/=(const OtherT &num)
 {
+    checkDivisionByZero(num, __LINE__);
 
     for(size_t i = 0; i < this->size; i++)
         (*this)[i] /= num;
 
     return (*this);
 }
+
+template<typename T>
+T Vector<T>::operator&(const Vector<T> &vector) const
+{
+    this->checkSize(vector, __LINE__);
+
+    T res = 0;
+    for(size_t i = 0; i < this->size; i++)
+        res += (*this)[i] * vector[i];
+    return res;
+}
+
+template<typename T>
+template<typename OtherT>
+decltype(auto) Vector<T>::operator&(const Vector<OtherT> &vector) const
+{
+    this->checkSize(vector, __LINE__);
+
+    decltype((*this)[0] * vector[0]) res = 0;
+    for(size_t i = 0; i < this->size; i++)
+        res += (*this)[i] * vector[i];
+    return res;
+}
+
+template<typename T>
+Vector<T> Vector<T>::operator^(const Vector<T> &vector) const
+{
+    this->checkSize(vector, __LINE__);
+
+    Vector<T> res(this->size);
+    for(size_t i = 0; i < this->size; i++)
+        res[i] = (*this)[(i + 1) % this->size] * vector[(i + 2) % this->size] -
+                 (*this)[(i + 2) % this->size] * vector[(i + 1) % this->size];
+    return res;
+}
+
+template<typename T>
+Vector<T> &Vector<T>::operator^=(const Vector<T> &vector) const
+{
+    this->checkSize(vector, __LINE__);
+    Vector<T> thisCopy(*this);
+
+    for(size_t i = 0; i < this->size; i++)
+        (*this)[i] = thisCopy[(i + 1) % this->size] * vector[(i + 2) % this->size] -
+                     thisCopy[(i + 2) % this->size] * vector[(i + 1) % this->size];
+    return (*this);
+}
+
+template<typename T>
+template<typename OtherT>
+Vector<T> &Vector<T>::operator^=(const Vector<OtherT> &vector) const
+{
+    this->checkSize(vector, __LINE__);
+    Vector<T> thisCopy(*this);
+
+    for(size_t i = 0; i < this->size; i++)
+        (*this)[i] = thisCopy[(i + 1) % this->size] * vector[(i + 2) % this->size] -
+                     thisCopy[(i + 2) % this->size] * vector[(i + 1) % this->size];
+    return (*this);
+}
+
+template<typename T>
+template<typename OtherT>
+decltype(auto) Vector<T>::operator^(const Vector<OtherT> &vector) const
+{
+    this->checkSize(vector, __LINE__);
+
+    Vector<decltype((*this)[0] + vector[0])> res(this->size);
+    for(size_t i = 0; i < this->size; i++)
+        res += (*this)[(i + 1) % this->size] * vector[(i + 2) % this->size] -
+               (*this)[(i + 2) % this->size] * vector[(i + 1) % this->size];
+    return res;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 template<typename T>

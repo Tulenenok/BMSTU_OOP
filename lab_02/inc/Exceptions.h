@@ -47,4 +47,14 @@ public:
                             const std::string &methodName, const std::string &info="Allocate memory error")
             : BaseException(time, filename, line, className, methodName, info){};
 };
+
+class WildPointerException : public BaseException
+{
+public:
+    WildPointerException(const std::string &time, const std::string &filename,
+                         const size_t &line, const std::string &class_name,
+                         const std::string &method_name,
+                         const std::string &info = "Wild pointer.")
+            : BaseException(time, filename, line, class_name, method_name, info){};
+};
 #endif //MY_LAB_02_EXCEPTIONS_H

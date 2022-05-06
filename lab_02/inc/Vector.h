@@ -1,9 +1,9 @@
 /*
  * Примечания
- *
- * Какие операторы хочется перегрузить:
- *   todo: *=, /=
- *   done: [], -, +, =, -=, +=, ==, !=, *, /
+ *   todo: конкретные-операции с векторами, текстовые названия функций
+ *   todo: разобраться с итератором
+ *   todo: разобраться с функциями begin и end
+ *   done: [], -, +, =, -=, +=, ==, !=, *, /, *=, /=, exceptions
  */
 
 #ifndef MY_LAB_02_VECTOR_H
@@ -113,6 +113,23 @@ public:
     template<typename OtherT>
     bool operator!=(const Vector<OtherT> &vector) const;
     //
+
+    // Скалярное произведение
+    T operator&(const Vector<T> &vector) const;
+    template<typename OtherT>
+    decltype(auto) operator&(const Vector<OtherT> &vector) const;
+    //
+
+    // Векторное произведение
+    Vector<T> operator^(const Vector<T> &vector) const;
+    Vector<T> &operator^=(const Vector<T> &vector) const;
+
+    template<typename OtherT>
+    decltype(auto) operator^(const Vector<OtherT> &vector) const;
+    template<typename OtherT>
+    Vector<T> &operator^=(const Vector<OtherT> &vector) const;
+    //
+
 
 protected:
     void allocateMemory(const size_t size);
