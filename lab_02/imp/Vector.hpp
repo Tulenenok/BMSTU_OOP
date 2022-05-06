@@ -1,7 +1,9 @@
 #ifndef MY_LAB_02_VECTOR_HPP
 #define MY_LAB_02_VECTOR_HPP
 
+#include <ctime>
 #include "../inc/Vector.h"
+#include "../inc/Exceptions.h"
 
 template<typename T>
 Vector<T>::Vector(): BaseContainter(), data() {}
@@ -62,14 +64,16 @@ Vector<T>::~Vector() = default;
 template<typename T>
 T& Vector<T>::operator[](const size_t ind)
 {
-    // Нужна проверка на то, что индекс корректный
+    this->checkIndex(ind, __LINE__);
+
     return this->data[ind];
 }
 
 template<typename T>
 const T& Vector<T>::operator[](const size_t ind) const
 {
-    // Нужна проверка на то, что индекс корректный
+    this->checkIndex(ind, __LINE__);
+
     return this->data[ind];
 }
 
@@ -85,7 +89,7 @@ Vector<T> Vector<T>::operator-() const
 template<typename T>
 Vector<T> Vector<T>::operator-(const Vector<T> &vector) const
 {
-    // Проверка на совпадение длины
+    this->checkSize(vector, __LINE__);
 
     Vector<T> res(*this);
 
@@ -110,8 +114,7 @@ template<typename T>
 template<typename OtherT>
 decltype(auto) Vector<T>::operator-(const Vector<OtherT> &vector) const
 {
-    // Нужна проверка длин векторов
-    // И возможно проверка на то, что длина не 0 (отсебятина)
+    this->checkSize(vector, __LINE__);
 
     Vector<decltype((*this)[0] - vector[0])> res(this->size);
 
@@ -125,8 +128,6 @@ template<typename T>
 template<typename OtherT>
 decltype(auto) Vector<T>::operator-(const OtherT &num) const
 {
-    // Было бы неплохо проверить, что длина вектора хотя бы 1
-
     Vector<decltype((*this)[0] - num)> res(this->size);
 
     for(size_t i = 0; i < this->size; i++)
@@ -171,7 +172,7 @@ Vector<T> &Vector<T>::operator=(Vector<T> &&vector) noexcept
 template<typename T>
 Vector<T> &Vector<T>::operator-=(const Vector<T> &vector)
 {
-    // Проверка на равенство длин векторов
+    this->checkSize(vector, __LINE__);
 
     for(size_t i = 0; i < this->size; i++)
         (*this)[i] -= vector[i];
@@ -191,7 +192,8 @@ template<typename T>
 template<typename OtherT>
 Vector<T> &Vector<T>::operator-=(const Vector<OtherT> &vector)
 {
-    // Нужна проверка на равенство длин векторов
+    this->checkSize(vector, __LINE__);
+
     for(size_t i = 0; i < this->size; i++)
         (*this)[i] -= vector[i];
 
@@ -210,7 +212,7 @@ Vector<T> &Vector<T>::operator-=(const OtherT &num)
 template<typename T>
 Vector<T> &Vector<T>::operator+=(const Vector<T> &vector)
 {
-    // Нужна проверка на равенcтво длин векторов
+    this->checkSize(vector, __LINE__);
 
     for(size_t i = 0; i < this->size; i++)
         (*this)[i] += vector[i];
@@ -229,7 +231,7 @@ template<typename T>
 template<typename OtherT>
 Vector<T> &Vector<T>::operator+=(const Vector<OtherT> &vector)
 {
-    // Нужна проверка на равенство длин векторов
+    this->checkSize(vector, __LINE__);
 
     for(size_t i = 0; i < this->size; i++)
         (*this)[i] += vector[i];
@@ -285,7 +287,7 @@ Vector<T> Vector<T>::operator+() const
 template<typename T>
 Vector<T> Vector<T>::operator+(const Vector<T> &vector) const
 {
-    // Нужна проверка на совпадение длинны векторов
+    this->checkSize(vector, __LINE__);
 
     Vector<T> res(*this);
 
@@ -309,8 +311,6 @@ template<typename T>
 template<typename OtherT>
 decltype(auto) Vector<T>::operator+(const Vector<OtherT> &vector) const
 {
-    // Нужна проверка на длину
-
     Vector<decltype((*this)[0] + vector[0])> res(this->size);
 
     for(size_t i = 0; i < this->size; i++)
@@ -331,17 +331,6 @@ decltype(auto) Vector<T>::operator+(const OtherT &num) const
     return res;
 }
 
-template<typename T>
-Vector<T> Vector<T>::operator*(const Vector<T> &vector) const
-{
-    // Нужна проверка на совпадение длинны векторов
-
-    Vector<T> res(*this);
-
-    for(size_t i = 0; i < this->size; i++)
-        res[i] *= vector[i];
-    return res;
-}
 
 template<typename T>
 Vector<T> Vector<T>::operator*(const T &num) const
@@ -350,20 +339,6 @@ Vector<T> Vector<T>::operator*(const T &num) const
 
     for(size_t i = 0; i < this->size; i++)
         res[i] *= num;
-
-    return res;
-}
-
-template<typename T>
-template<typename OtherT>
-decltype(auto) Vector<T>::operator*(const Vector<OtherT> &vector) const
-{
-    // Нужна проверка на длину
-
-    Vector<decltype((*this)[0] * vector[0])> res(this->size);
-
-    for(size_t i = 0; i < this->size; i++)
-        res[i] = (*this)[i] * vector[i];
 
     return res;
 }
@@ -381,15 +356,12 @@ decltype(auto) Vector<T>::operator*(const OtherT &num) const
 }
 
 template<typename T>
-template<typename OtherT>
-decltype(auto) Vector<T>::operator/(const Vector<OtherT> &vector) const
+Vector<T> Vector<T>::operator/(const T &num) const
 {
-    // Нужна проверка на длину
-
-    Vector<decltype((*this)[0] * vector[0])> res(this->size);
+    Vector<T> res(*this);
 
     for(size_t i = 0; i < this->size; i++)
-        res[i] = (*this)[i] / vector[i];
+        res[i] /= num;
 
     return res;
 }
@@ -407,13 +379,10 @@ decltype(auto) Vector<T>::operator/(const OtherT &num) const
 }
 
 template<typename T>
-template<typename OtherT>
-Vector<T> &Vector<T>::operator*=(const Vector<OtherT> &vector)
+Vector<T> &Vector<T>::operator*=(const T &num)
 {
-    // Нужна проверка на равенство длин векторов
-
     for(size_t i = 0; i < this->size; i++)
-        (*this)[i] *= vector[i];
+        (*this)[i] *= num;
 
     return (*this);
 }
@@ -422,10 +391,29 @@ template<typename T>
 template<typename OtherT>
 Vector<T> &Vector<T>::operator*=(const OtherT &num)
 {
-    // Нужна проверка на равенство длин векторов
 
     for(size_t i = 0; i < this->size; i++)
         (*this)[i] *= num;
+
+    return (*this);
+}
+
+template<typename T>
+Vector<T> &Vector<T>::operator/=(const T &num)
+{
+    for(size_t i = 0; i < this->size; i++)
+        (*this)[i] /= num;
+
+    return (*this);
+}
+
+template<typename T>
+template<typename OtherT>
+Vector<T> &Vector<T>::operator/=(const OtherT &num)
+{
+
+    for(size_t i = 0; i < this->size; i++)
+        (*this)[i] /= num;
 
     return (*this);
 }
@@ -434,8 +422,57 @@ Vector<T> &Vector<T>::operator*=(const OtherT &num)
 template<typename T>
 void Vector<T>::allocateMemory(const size_t size)
 {
-    // Здесь нужна обработка ошибки выделения памяти
-    this->data.reset(new T[size]);
+    try
+    {
+        this->data.reset(new T[size]);
+    }
+    catch (std::bad_alloc &err)
+    {
+        time_t curTime = time(NULL);
+        throw AllocateMemoryException(ctime(&curTime), __FILE__, __LINE__, typeid(*this).name(), __FUNCTION__);
+    }
+}
+
+template<typename T>
+template<typename OtherT>
+void Vector<T>::checkSize(const Vector<OtherT> &vector, const size_t line) const
+{
+    if(this->size != vector.getSize())
+    {
+        time_t curTime = time(NULL);
+        throw DifferentSizesException(ctime(&curTime), __FILE__, line, typeid(*this).name(), __FUNCTION__);
+    }
+}
+
+template<typename T>
+template<typename OtherT>
+void Vector<T>::checkDivisionByZero(const OtherT &num, const size_t line) const
+{
+    if(abs(num) < EPS)
+    {
+        time_t curTime = time(NULL);
+        throw DivisionByZeroException(ctime(&curTime), __FILE__, line, typeid(*this).name(), __FUNCTION__);
+    }
+}
+
+template<typename T>
+void Vector<T>::checkEmpty(const size_t line) const
+{
+    if(isEmpty())
+    {
+        time_t curTime = time(NULL);
+        throw EmptyVectorException(ctime(&curTime), __FILE__, line, typeid(*this).name(), __FUNCTION__);
+    }
+}
+
+template<typename T>
+void Vector<T>::checkIndex(const size_t index, const size_t line) const
+{
+    if(index >= this->getSize())
+    {
+        time_t curTime = time(NULL);
+        throw IndexOutOfRangeException(ctime(&curTime), __FILE__, line, typeid(*this).name(), __FUNCTION__);
+    }
 }
 
 

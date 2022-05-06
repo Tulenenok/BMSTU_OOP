@@ -60,17 +60,13 @@ public:
     //
 
     // *
-    Vector<T> operator*(const Vector<T> &vector) const;
     Vector<T> operator*(const T &num) const;
-    template<typename OtherT>
-    decltype(auto) operator*(const Vector<OtherT> &vector) const;
     template<typename OtherT>
     decltype(auto) operator*(const OtherT &num) const;
     //
 
     // /
-    template<typename OtherT>
-    decltype(auto) operator/(const Vector<OtherT> &vector) const;
+    Vector<T> operator/(const T &num) const;
     template<typename OtherT>
     decltype(auto) operator/(const OtherT &num) const;
     //
@@ -100,10 +96,15 @@ public:
     //
 
     // *=
-    template<typename OtherT>
-    Vector<T> &operator*=(const Vector<OtherT> &vector);
+    Vector<T> &operator*=(const T &num);
     template<typename OtherT>
     Vector<T> &operator*=(const OtherT &num);
+    //
+
+    // /=
+    Vector<T> &operator/=(const T &num);
+    template<typename OtherT>
+    Vector<T> &operator/=(const OtherT &num);
     //
 
     // == !=
@@ -115,6 +116,17 @@ public:
 
 protected:
     void allocateMemory(const size_t size);
+
+    // check + exceptions
+    template<typename OtherT>
+    void checkSize(const Vector<OtherT> &vector, const size_t line) const;
+
+    void checkIndex(const size_t index, const size_t line) const;
+    void checkEmpty(const size_t line) const;
+
+    template<typename OtherT>
+    void checkDivisionByZero(const OtherT &num, const size_t line) const;
+    //
 
 private:
     std::shared_ptr<T[]> data = nullptr;
