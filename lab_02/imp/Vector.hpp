@@ -2,6 +2,8 @@
 #define MY_LAB_02_VECTOR_HPP
 
 #include <ctime>
+#include <cmath>
+#include <math.h>
 #include "../inc/Vector.h"
 #include "../inc/Exceptions.h"
 
@@ -423,24 +425,14 @@ Vector<T> &Vector<T>::operator/=(const OtherT &num)
 template<typename T>
 T Vector<T>::operator&(const Vector<T> &vector) const
 {
-    this->checkSize(vector, __LINE__);
-
-    T res = 0;
-    for(size_t i = 0; i < this->size; i++)
-        res += (*this)[i] * vector[i];
-    return res;
+    return this->scalarProduct(vector);
 }
 
 template<typename T>
 template<typename OtherT>
 decltype(auto) Vector<T>::operator&(const Vector<OtherT> &vector) const
 {
-    this->checkSize(vector, __LINE__);
-
-    decltype((*this)[0] * vector[0]) res = 0;
-    for(size_t i = 0; i < this->size; i++)
-        res += (*this)[i] * vector[i];
-    return res;
+    return this->scalarProduct(vector);
 }
 
 template<typename T>
@@ -456,7 +448,7 @@ Vector<T> Vector<T>::operator^(const Vector<T> &vector) const
 }
 
 template<typename T>
-Vector<T> &Vector<T>::operator^=(const Vector<T> &vector) const
+Vector<T> &Vector<T>::operator^=(const Vector<T> &vector)
 {
     this->checkSize(vector, __LINE__);
     Vector<T> thisCopy(*this);
@@ -469,7 +461,7 @@ Vector<T> &Vector<T>::operator^=(const Vector<T> &vector) const
 
 template<typename T>
 template<typename OtherT>
-Vector<T> &Vector<T>::operator^=(const Vector<OtherT> &vector) const
+Vector<T> &Vector<T>::operator^=(const Vector<OtherT> &vector)
 {
     this->checkSize(vector, __LINE__);
     Vector<T> thisCopy(*this);
@@ -488,11 +480,206 @@ decltype(auto) Vector<T>::operator^(const Vector<OtherT> &vector) const
 
     Vector<decltype((*this)[0] + vector[0])> res(this->size);
     for(size_t i = 0; i < this->size; i++)
-        res += (*this)[(i + 1) % this->size] * vector[(i + 2) % this->size] -
-               (*this)[(i + 2) % this->size] * vector[(i + 1) % this->size];
+        res[i] = (*this)[(i + 1) % this->size] * vector[(i + 2) % this->size] -
+                (*this)[(i + 2) % this->size] * vector[(i + 1) % this->size];
     return res;
 }
 
+template<typename T>
+template<typename OtherT>
+OtherT Vector<T>::len() const
+{
+    checkEmpty(__LINE__);
+
+    OtherT sum = 0;
+    for(size_t i = 0; i < this->size; i++)
+        sum += (*this)[i] * (*this)[i];
+    return sqrt(sum);
+}
+
+template<typename T>
+T Vector<T>::scalarProduct(const Vector<T> &vector) const
+{
+    this->checkSize(vector, __LINE__);
+
+    T res = 0;
+    for(size_t i = 0; i < this->size; i++)
+        res += (*this)[i] * vector[i];
+    return res;
+}
+
+template<typename T>
+template<typename OtherT>
+decltype(auto) Vector<T>::scalarProduct(const Vector<OtherT> &vector) const\
+{
+    this->checkSize(vector, __LINE__);
+
+    decltype((*this)[0] * vector[0]) res = 0;
+    for(size_t i = 0; i < this->size; i++)
+        res += (*this)[i] * vector[i];
+    return res;
+}
+
+template<typename T>
+double Vector<T>::angle(const Vector<T> &vector) const
+{
+    double thisLen = this->len<double>();
+    double vecLen = this->len<double>();
+
+    if (fabs(thisLen) > EPS and fabs(vecLen) > EPS)
+        return acos(this->scalarProduct(vector) / (thisLen * vecLen));
+
+    return 0;
+}
+
+template<typename T>
+template<typename OtherT>
+double Vector<T>::angle(const Vector<OtherT> &vector) const
+{
+    double thisLen = this->len<double>();
+    double vecLen = this->len<double>();
+
+    if (fabs(thisLen) > EPS and fabs(vecLen) > EPS)
+        return acos(this->scalarProduct(vector) / (thisLen * vecLen));
+
+    return 0;
+}
+
+template<typename T>
+bool Vector<T>::isCollinear(const Vector<T> &vector) const
+{
+    this->checkSize(vector, __LINE__);
+    double ang = this->angle(vector);
+    return fabs(ang) < EPS or fabs(ang - M_PI) < EPS;
+}
+
+template<typename T>
+template<typename OtherT>
+bool Vector<T>::isCollinear(const Vector<OtherT> &vector) const
+{
+    this->checkSize(vector, __LINE__);
+    double ang = this->angle(vector);
+    return fabs(ang) < EPS or fabs(ang - M_PI) < EPS;
+}
+
+template<typename T>
+bool Vector<T>::isOrthogonal(const Vector<T> &vector) const
+{
+    this->checkSize(vector, __LINE__);
+    double ang = this->angle(vector);
+    return fabs(ang - M_PI / 2) < EPS;
+}
+
+template<typename T>
+template<typename OtherT>
+bool Vector<T>::isOrthogonal(const Vector<OtherT> &vector) const
+{
+    this->checkSize(vector, __LINE__);
+    double ang = this->angle(vector);
+    return fabs(ang - M_PI / 2) < EPS;
+}
+
+template<typename T>
+Vector<T> Vector<T>::neg() const
+{
+    return -(*this);
+}
+
+template<typename T>
+Vector<T> Vector<T>::diff(const Vector<T> &vector) const
+{
+    return (*this) - vector;
+}
+
+template<typename T>
+Vector<T> Vector<T>::diff(const T &num) const
+{
+    return (*this) - num;
+}
+
+template<typename T>
+template<typename OtherT>
+decltype(auto) Vector<T>::diff(const Vector<OtherT> &vector) const
+{
+    return (*this) - vector;
+}
+
+template<typename T>
+template<typename OtherT>
+decltype(auto) Vector<T>::diff(const OtherT &num) const
+{
+   return (*this) + num;
+}
+
+template<typename T>
+Vector<T> Vector<T>::sum(const Vector<T> &vector) const
+{
+    return (*this) + vector;
+}
+
+template<typename T>
+Vector<T> Vector<T>::sum(const T &num) const
+{
+    return (*this) - num;
+}
+
+template<typename T>
+template<typename OtherT>
+decltype(auto) Vector<T>::sum(const Vector<OtherT> &vector) const
+{
+    return (*this) + vector;
+}
+
+template<typename T>
+template<typename OtherT>
+decltype(auto) Vector<T>::sum(const OtherT &num) const
+{
+    return (*this) + num;
+}
+
+template<typename T>
+Vector<T> Vector<T>::mul(const T &num) const
+{
+    return (*this) * num;
+}
+
+template<typename T>
+template<typename OtherT>
+decltype(auto) Vector<T>::mul(const OtherT &num) const
+{
+    return (*this) * num;
+}
+
+template<typename T>
+Vector<T> Vector<T>::div(const T &num) const
+{
+    return (*this) / num;
+}
+
+template<typename T>
+template<typename OtherT>
+decltype(auto) Vector<T>::div(const OtherT &num) const
+{
+    return (*this) / num;
+}
+
+template<typename T>
+Vector<T> &Vector<T>::equal(const Vector<T> &vector)
+{
+    return (*this) = vector;
+}
+
+template<typename T>
+Vector<T> &Vector<T>::equal(Vector<T> &&vector) noexcept
+{
+    return (*this) = vector;
+}
+
+template<typename T>
+Vector<T> &Vector<T>::equal(std::initializer_list<T> list)
+{
+    return (*this) = list;
+}
 
 
 

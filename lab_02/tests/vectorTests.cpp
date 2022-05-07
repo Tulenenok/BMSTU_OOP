@@ -241,9 +241,9 @@ static void minus_equal_overload_vector_tests(int &rc, int &test_number)
     {
         // 20 Оператор -= (вектор - вектор другого типа)
         Vector<int> v1 = {1, 3, 5};
-        Vector<double> v2 = {1.1, 2.9, 4.5};
+        Vector<double> v2 = {1.1, 2.9, 3.4};
         v1 -= v2;
-        Vector<double> perf = {0.1, -0.1, -0.5};
+        Vector<double> perf = {0, 0, 1};
         rc += print_result(v1 == perf, test_number);
     }
 
@@ -251,7 +251,7 @@ static void minus_equal_overload_vector_tests(int &rc, int &test_number)
         // 21 Оператор -= (вектор - число другого типа)
         Vector<int> v1 = {10, 5};
         v1 -=  5.2;
-        Vector<double> perf = {4.8, -0.2};
+        Vector<double> perf = {4, 0};
         rc += print_result(v1 == perf, test_number);
     }
 }
@@ -289,7 +289,7 @@ static void plus_equal_overload_vector_tests(int &rc, int &test_number)
         Vector<int> v1 = {1, 3, 5};
         Vector<double> v2 = {1.1, 2.9, 4.5};
         v1 += v2;
-        Vector<double> perf = {2.1, 5.9, 9.5};
+        Vector<double> perf = {2, 5, 9};
         rc += print_result(v1 == perf, test_number);
     }
 
@@ -297,7 +297,7 @@ static void plus_equal_overload_vector_tests(int &rc, int &test_number)
         // 26 Оператор += (вектор + число другого типа)
         Vector<int> v1 = {10, 5};
         v1 +=  5.2;
-        Vector<double> perf = {15.2, 10.2};
+        Vector<double> perf = {15, 10};
         rc += print_result(v1 == perf, test_number);
     }
 }
@@ -381,7 +381,7 @@ static void division_equal_overload_vector_tests(int &rc, int &test_number)
         // 35 Оператор *= (вектор / число)
         Vector<int> v1 = {1, -2, 3};
         v1 /= 3;
-        Vector<double> perf = {0.33333333, -0.66666666, 1};
+        Vector<double> perf = {0, 0, 1};
         rc += print_result(v1 == perf, test_number);
     }
 
@@ -389,7 +389,7 @@ static void division_equal_overload_vector_tests(int &rc, int &test_number)
         // 36 Оператор /=
         Vector<int> v1 = {10, 5};
         v1 /=  2;
-        Vector<double> perf = {5, 2.5};
+        Vector<double> perf = {5, 2};
         rc += print_result(v1 == perf, test_number);
     }
 }
@@ -429,19 +429,27 @@ static void vec_prod_overload_vector_tests(int &rc, int &test_number)
         Vector<double> v1 = {1.1, 0, 3};
         Vector<int> v2 = {0, 10, 20};
         Vector<double> res(v1 ^ v2);
-        Vector<int> perf = {-41, -41, -41};
+        Vector<int> perf = {-30, -22, 11};
         rc += print_result(res == perf, test_number);
     }
 
-    //неробит
-//    {
-//        // 40
-//        Vector<double> v1 = {1.1, 0, 3};
-//        Vector<int> v2 = {0, 10, 20};
-//        Vector<int> res(v1 ^= v2);
-//        Vector<int> perf = {-41, -41, -41};
-//        rc += print_result(res == perf, test_number);
-//    }
+    {
+        // 41
+        Vector<double> v1 = {1.1, 0, 3};
+        Vector<int> v2 = {0, 10, 20};
+        v1 ^= v2;
+        Vector<int> perf = {-30, -22, 11};
+        rc += print_result(v1 == perf, test_number);
+    }
+
+    {
+        // 42
+        Vector<double> v1 = {1.1, 0, 3};
+        Vector<double> v2 = {0, 10, 20};
+        v2 ^= v1;
+        Vector<int> perf = {30, 22, -11};
+        rc += print_result(v2 == perf, test_number);
+    }
 }
 
 int overload_vector_tests()

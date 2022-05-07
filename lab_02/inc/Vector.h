@@ -122,13 +122,88 @@ public:
 
     // Векторное произведение
     Vector<T> operator^(const Vector<T> &vector) const;
-    Vector<T> &operator^=(const Vector<T> &vector) const;
+    Vector<T> &operator^=(const Vector<T> &vector);
 
     template<typename OtherT>
     decltype(auto) operator^(const Vector<OtherT> &vector) const;
     template<typename OtherT>
-    Vector<T> &operator^=(const Vector<OtherT> &vector) const;
+    Vector<T> &operator^=(const Vector<OtherT> &vector);
     //
+
+    // Длина вектора
+    template<typename OtherT>
+    OtherT len() const;
+    //
+
+    // Скалярное произведение
+    T scalarProduct(const Vector<T> &vector) const;
+    template<typename OtherT>
+    decltype(auto) scalarProduct(const Vector<OtherT> &vector) const;
+    //
+
+    // Угол между векторами
+    double angle(const Vector<T> &vector) const;
+
+    template<typename OtherT>
+    double angle(const Vector<OtherT> &vector) const;
+    //
+
+    // Коллинеарность
+    bool isCollinear(const Vector<T> &vector) const;
+    template<typename OtherT>
+    bool isCollinear(const Vector<OtherT> &vector) const;
+    //
+
+    // Ортогональность
+    bool isOrthogonal(const Vector<T> &vector) const;
+    template<typename OtherT>
+    bool isOrthogonal(const Vector<OtherT> &vector) const;
+    //
+
+
+    // Текстовые зеркала перегруженных операторов
+        // -
+    Vector<T> neg() const;
+    Vector<T> diff(const Vector<T> &vector) const;
+    Vector<T> diff(const T &num) const;
+    template<typename OtherT>
+    decltype(auto) diff(const Vector<OtherT> &vector) const;
+    template<typename OtherT>
+    decltype(auto) diff(const OtherT &num) const;
+       //
+
+       // +
+    Vector<T> sum(const Vector<T> &vector) const;
+    Vector<T> sum(const T &num) const;
+    template<typename OtherT>
+    decltype(auto) sum(const Vector<OtherT> &vector) const;
+    template<typename OtherT>
+    decltype(auto) sum(const OtherT &num) const;
+       //
+
+       // *
+    Vector<T> mul(const T &num) const;
+    template<typename OtherT>
+    decltype(auto) mul(const OtherT &num) const;
+       //
+
+       // /
+    Vector<T> div(const T &num) const;
+    template<typename OtherT>
+    decltype(auto) div(const OtherT &num) const;
+       //
+
+       // =
+    Vector<T> &equal(const Vector<T> &vector);
+    Vector<T> &equal(std::initializer_list<T> list);
+    Vector<T> &equal(Vector<T> &&vector) noexcept;
+       //
+
+
+
+
+    //
+
 
 
 protected:
