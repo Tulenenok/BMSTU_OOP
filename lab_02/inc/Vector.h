@@ -1,9 +1,10 @@
 /*
  * Примечания
- *   todo: конкретные-операции с векторами, текстовые названия функций
+ *   todo:
  *   todo: разобраться с итератором
  *   todo: разобраться с функциями begin и end
- *   done: [], -, +, =, -=, +=, ==, !=, *, /, *=, /=, exceptions
+ *   done: [], -, +, =, -=, +=, ==, !=, *, /, *=, /=, exceptions,
+ *   done: конкретные операции с векторами, текстовые названия функций
  */
 
 #ifndef MY_LAB_02_VECTOR_H
@@ -135,10 +136,28 @@ public:
     OtherT len() const;
     //
 
+    // Единичный и нулевой вектора
+    bool isUnit() const;
+    bool isZero() const;
+
+    template<typename OtherT>
+    Vector<OtherT> getUnit();
+    //
+
     // Скалярное произведение
     T scalarProduct(const Vector<T> &vector) const;
     template<typename OtherT>
     decltype(auto) scalarProduct(const Vector<OtherT> &vector) const;
+    //
+
+    // Векторное произведение
+    Vector<T> vectorProduct(const Vector<T> &vector) const;
+    Vector<T> &vectorEqualProduct(const Vector<T> &vector);
+
+    template<typename OtherT>
+    decltype(auto) vectorProduct(const Vector<OtherT> &vector) const;
+    template<typename OtherT>
+    Vector<T> &vectorEqualProduct(const Vector<OtherT> &vector);
     //
 
     // Угол между векторами
@@ -199,9 +218,42 @@ public:
     Vector<T> &equal(Vector<T> &&vector) noexcept;
        //
 
+       // -=
+    Vector<T> &diffEqual(const Vector<T> &vector);
+    Vector<T> &diffEqual(const T &num);
+    template<typename OtherT>
+    Vector<T> &diffEqual(const Vector<OtherT> &vector);
+    template<typename OtherT>
+    Vector<T> &diffEqual(const OtherT &num);
+       //
 
+       // +=
+    Vector<T> &sumEqual(const Vector<T> &vector);
+    Vector<T> &sumEqual(const T &num);
+    template<typename OtherT>
+    Vector<T> &sumEqual(const Vector<OtherT> &vector);
+    template<typename OtherT>
+    Vector<T> &sumEqual(const OtherT &num);
+       //
 
+       // *=
+    Vector<T> &mulEqual(const T &num);
+    template<typename OtherT>
+    Vector<T> &mulEqual(const OtherT &num);
+       //
 
+       // /=
+    Vector<T> &divEqual(const T &num);
+    template<typename OtherT>
+    Vector<T> &divEqual(const OtherT &num);
+       //
+
+       // == !=
+    template<typename OtherT>
+    bool isEqual(const Vector<OtherT> &vector) const;
+    template<typename OtherT>
+    bool isNotEqual(const Vector<OtherT> &vector) const;
+       //
     //
 
 

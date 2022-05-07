@@ -475,3 +475,102 @@ int overload_vector_tests()
 
     return test_number;
 }
+
+static void collinear_vector_tests(int &rc, int &test_number)
+{
+    {
+        // 1
+        Vector<int> v1 = {1, 2, 3};
+        Vector<int> v2 = {1, 1, 2};
+        rc += print_result(not v1.isCollinear(v2), test_number);
+    }
+
+    {
+        // 2
+        Vector<int> v1 = {1, 2, 3};
+        Vector<int> v2 = {2, 4, 6};
+        rc += print_result(v1.isCollinear(v2), test_number);
+    }
+
+    {
+        // 3
+        Vector<int> v1 = {1, 2};
+        Vector<double> v2 = {3, 6};
+        rc += print_result(v2.isCollinear(v1), test_number);
+    }
+}
+
+static void orthogonal_vector_tests(int &rc, int &test_number)
+{
+    {
+        // 4
+        Vector<int> v1 = {1, 0, 0};
+        Vector<int> v2 = {0, 1, 0};
+        rc += print_result(v1.isOrthogonal(v2), test_number);
+    }
+
+    {
+        // 5
+        Vector<int> v1 = {1, 2};
+        Vector<int> v2 = {2, -1};
+        rc += print_result(v2.isOrthogonal(v1), test_number);
+    }
+
+    {
+        // 6
+        Vector<int> v1 = {1, 2, 1};
+        Vector<double> v2 = {2, -1, 10};
+        rc += print_result(not v2.isCollinear(v1), test_number);
+    }
+}
+
+static void unit_zero_vector_tests(int &rc, int &test_number)
+{
+    {
+        // 7
+        Vector<int> v1 = {1, 0, 0};
+        rc += print_result(not v1.isZero(), test_number);
+    }
+
+    {
+        // 8
+        Vector<int> v1 = {1, 0, 0};
+        rc += print_result(v1.isUnit(), test_number);
+    }
+
+    {
+        // 9
+        Vector<int> v1 = {1, 2, 0};
+        rc += print_result(not v1.isUnit(), test_number);
+    }
+
+    {
+        // 10
+        Vector<int> v1 = {0, 0, 0};
+        rc += print_result(v1.isZero(), test_number);
+    }
+
+    {
+        // 11
+        Vector<int> v1 = {3, 4};
+        Vector<double> v2(v1.getUnit<double>());
+        Vector<double> v3 = {0.6, 0.8};
+        rc += print_result(v2 == v3, test_number);
+    }
+}
+
+
+int special_vector_tests()
+{
+    int rc = 0;
+    int test_number = 1;
+
+    printf("Special vector tests:\n");
+    collinear_vector_tests(rc, test_number);
+    orthogonal_vector_tests(rc, test_number);
+    unit_zero_vector_tests(rc, test_number);
+
+    printf("Count tests %d, count errors: %d\n\n", test_number - 1, rc);
+
+    return test_number;
+}

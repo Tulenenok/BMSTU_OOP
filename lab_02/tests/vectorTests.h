@@ -5,5 +5,6 @@
 
 int constructors_vector_tests();
 int overload_vector_tests();
+int special_vector_tests();
 
 #endif //MY_LAB_02_VECTORTESTS_H

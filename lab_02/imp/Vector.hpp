@@ -3,7 +3,7 @@
 
 #include <ctime>
 #include <cmath>
-#include <math.h>
+//#include <math.h>
 #include "../inc/Vector.h"
 #include "../inc/Exceptions.h"
 
@@ -498,6 +498,34 @@ OtherT Vector<T>::len() const
 }
 
 template<typename T>
+bool Vector<T>::isUnit() const
+{
+    return abs(this->len<T>() - 1) < EPS;
+}
+
+template<typename T>
+template<typename OtherT>
+Vector<OtherT> Vector<T>::getUnit()
+{
+    this->checkEmpty(__LINE__);
+
+    OtherT thisLen = this->len<OtherT>();
+    this->template checkDivisionByZero(thisLen, __LINE__);
+
+    Vector<OtherT> res(this->size);
+    for(size_t i = 0; i < this->size; i++)
+        res[i] = (*this)[i] / thisLen;
+
+    return res;
+}
+
+template<typename T>
+bool Vector<T>::isZero() const
+{
+    return abs(this->len<T>()) < EPS;
+}
+
+template<typename T>
 T Vector<T>::scalarProduct(const Vector<T> &vector) const
 {
     this->checkSize(vector, __LINE__);
@@ -518,6 +546,32 @@ decltype(auto) Vector<T>::scalarProduct(const Vector<OtherT> &vector) const\
     for(size_t i = 0; i < this->size; i++)
         res += (*this)[i] * vector[i];
     return res;
+}
+
+template<typename T>
+Vector<T> Vector<T>::vectorProduct(const Vector<T> &vector) const
+{
+    return (*this) ^ vector;
+}
+
+template<typename T>
+Vector<T> &Vector<T>::vectorEqualProduct(const Vector<T> &vector)
+{
+    return (*this) ^= vector;
+}
+
+template<typename T>
+template<typename OtherT>
+Vector<T> &Vector<T>::vectorEqualProduct(const Vector<OtherT> &vector)
+{
+    return (*this) ^= vector;
+}
+
+template<typename T>
+template<typename OtherT>
+decltype(auto) Vector<T>::vectorProduct(const Vector<OtherT> &vector) const
+{
+    return (*this) ^ vector;
 }
 
 template<typename T>
@@ -549,8 +603,7 @@ template<typename T>
 bool Vector<T>::isCollinear(const Vector<T> &vector) const
 {
     this->checkSize(vector, __LINE__);
-    double ang = this->angle(vector);
-    return fabs(ang) < EPS or fabs(ang - M_PI) < EPS;
+    return this->vectorProduct(vector).isZero();
 }
 
 template<typename T>
@@ -558,16 +611,14 @@ template<typename OtherT>
 bool Vector<T>::isCollinear(const Vector<OtherT> &vector) const
 {
     this->checkSize(vector, __LINE__);
-    double ang = this->angle(vector);
-    return fabs(ang) < EPS or fabs(ang - M_PI) < EPS;
+    return this->vectorProduct(vector).isZero();
 }
 
 template<typename T>
 bool Vector<T>::isOrthogonal(const Vector<T> &vector) const
 {
     this->checkSize(vector, __LINE__);
-    double ang = this->angle(vector);
-    return fabs(ang - M_PI / 2) < EPS;
+    return abs(this->scalarProduct(vector)) < EPS;
 }
 
 template<typename T>
@@ -575,8 +626,7 @@ template<typename OtherT>
 bool Vector<T>::isOrthogonal(const Vector<OtherT> &vector) const
 {
     this->checkSize(vector, __LINE__);
-    double ang = this->angle(vector);
-    return fabs(ang - M_PI / 2) < EPS;
+    return abs(this->scalarProduct(vector)) < EPS;
 }
 
 template<typename T>
@@ -679,6 +729,98 @@ template<typename T>
 Vector<T> &Vector<T>::equal(std::initializer_list<T> list)
 {
     return (*this) = list;
+}
+
+template<typename T>
+Vector<T> &Vector<T>::diffEqual(const Vector<T> &vector)
+{
+    return (*this) -= vector;
+}
+
+template<typename T>
+Vector<T> &Vector<T>::diffEqual(const T &num)
+{
+    return (*this) -= num;
+}
+
+template<typename T>
+template<typename OtherT>
+Vector<T> &Vector<T>::diffEqual(const Vector<OtherT> &vector)
+{
+    return (*this) -= vector;
+}
+
+template<typename T>
+template<typename OtherT>
+Vector<T> &Vector<T>::diffEqual(const OtherT &num)
+{
+    return (*this) -= num;
+}
+
+template<typename T>
+Vector<T> &Vector<T>::sumEqual(const Vector<T> &vector)
+{
+    return (*this) += vector;
+}
+
+template<typename T>
+Vector<T> &Vector<T>::sumEqual(const T &num)
+{
+    return (*this) += num;
+}
+
+template<typename T>
+template<typename OtherT>
+Vector<T> &Vector<T>::sumEqual(const Vector<OtherT> &vector)
+{
+    return (*this) += vector;
+}
+
+template<typename T>
+template<typename OtherT>
+Vector<T> &Vector<T>::sumEqual(const OtherT &num)
+{
+    return (*this) += num;
+}
+
+template<typename T>
+Vector<T> &Vector<T>::mulEqual(const T &num)
+{
+    return (*this) *= num;
+}
+
+template<typename T>
+template<typename OtherT>
+Vector<T> &Vector<T>::mulEqual(const OtherT &num)
+{
+    return (*this) *= num;
+}
+
+template<typename T>
+Vector<T> &Vector<T>::divEqual(const T &num)
+{
+    return (*this) /= num;
+}
+
+template<typename T>
+template<typename OtherT>
+Vector<T> &Vector<T>::divEqual(const OtherT &num)
+{
+    return (*this) /= num;
+}
+
+template<typename T>
+template<typename OtherT>
+bool Vector<T>::isEqual(const Vector<OtherT> &vector) const
+{
+    return (*this) == vector;
+}
+
+template<typename T>
+template<typename OtherT>
+bool Vector<T>::isNotEqual(const Vector<OtherT> &vector) const
+{
+    return (*this) != vector;
 }
 
 
