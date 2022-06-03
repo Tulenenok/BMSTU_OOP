@@ -52,8 +52,7 @@ void Button::unpressed()
 {
     if (_status == ACTIVE)
     {
-        // Устанавливаем обратно зеленый
-        this->setStyleSheet("background-color:green;"
+        this->setStyleSheet("background-color:cyan;"
                             "border-style: outset;"
                             "border-width: 2px;"
                             "border-radius: 10px;"
@@ -68,3 +67,30 @@ void Button::unpressed()
         this->setDisabled(false);
     }
 }
+
+void Button::setActiveState()
+{
+    // Этот этаж мы сейчас проезжаем
+    this->setStyleSheet("background-color:yellow;"
+                        "border-style: outset;"
+                        "border-width: 2px;"
+                        "border-radius: 10px;"
+                        "border-color: beige;"
+                        "font: bold 14px;"
+                        "padding: 6px;");
+    this->update();
+}
+
+void Button::setDefaultState()
+{
+    // Этот этаж мы проехали
+    this->setStyleSheet("background-color:magenta;"
+                        "border-style: outset;"
+                        "border-width: 2px;"
+                        "border-radius: 10px;"
+                        "border-color: beige;"
+                        "font: bold 14px;"
+                        "padding: 6px;");
+    this->update();
+}
+

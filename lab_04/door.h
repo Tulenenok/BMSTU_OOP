@@ -5,22 +5,23 @@
 #include <QDebug>
 #include <QTimer>
 
+enum DoorStatus
+{
+    OPEN,
+    OPENING,
+    CLOSING,
+    CLOSED
+};
+
 class Door : public QObject
 {
     Q_OBJECT;
 
-private:
-    enum DoorStatus
-    {
-        OPEN,
-        OPENING,
-        CLOSING,
-        CLOSED
-    };
-
 public:
     Door();
     ~Door() = default;
+
+    DoorStatus getStatus() {return _status;}
 
 public slots:
     // (Вызывается кабиной, когда нужный этаж достигнут)

@@ -60,7 +60,8 @@ void Cabin::getTargetSlot(ssize_t &neededFloor, ssize_t &currentFloor)
         _saveState(neededFloor, currentFloor);
 
         // Убегаем в слот перемещения
-        emit _movingSignal();
+        if (_door.getStatus() == CLOSED)
+            emit _movingSignal();
     }
 }
 

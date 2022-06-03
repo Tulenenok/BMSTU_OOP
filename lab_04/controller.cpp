@@ -86,6 +86,10 @@ void Controller::floorPassedSlot(ssize_t floor, Direction direction)
         _currentFloor = floor;
         _direction = direction;
 
+        _buttons[(floor - 1 - direction) < 0 || (floor - 1 - direction) > 8 ? (floor - 1) : (floor - 1 - direction)]->setDefaultState();
+//        _buttons[(floor - 1) % 8 ? (floor - 1 - direction) : (floor - 1 + direction)]->setDefaultState();
+        _buttons[floor - 1]->setActiveState();
+        
         if (_currentFloor == _neededFloor)
         {
             _buttons[floor - 1]->unpressed();

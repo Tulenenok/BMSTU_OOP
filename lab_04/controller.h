@@ -11,7 +11,7 @@
 
 #define FLOOR_COUNT 9
 #define DOORS_TIME  600
-#define MOVING_TIME 5000
+#define MOVING_TIME 1000
 
 enum Direction
 {

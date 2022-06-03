@@ -20,6 +20,9 @@ public:
 
     void setFloor(const ssize_t &floor);
 
+    void setActiveState();
+    void setDefaultState();
+
 public slots:
     void unpressed();
 

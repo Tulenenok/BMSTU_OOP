@@ -3,7 +3,7 @@
 
 Elevator::Elevator(QObject *parent) : QObject(parent)
 {
-    _controller.setStyleSheet("background-color:green;");
+    _controller.setStyleSheet("background-color:magenta;");
 
      // Связываем: если этаж достигнут -> контроллер выполняет floorPassedSlot
     QObject::connect(&_cabin, SIGNAL(_floorPassedSignal(ssize_t,Direction)),
