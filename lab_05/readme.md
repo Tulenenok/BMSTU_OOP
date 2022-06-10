@@ -8,28 +8,32 @@
 
 ДСС
 
-![i_want_sleep-ДСС drawio](https://user-images.githubusercontent.com/78147880/172539180-977f06dc-d456-45b8-a068-58277ee6102c.svg)
+![i_want_sleep-ДСС drawio (1)](https://user-images.githubusercontent.com/78147880/173043635-900f6800-d369-40cf-949e-1c098d6abad4.svg)
+
 
 
 
 ДПС
 
-![i_want_sleep-ДПС drawio](https://user-images.githubusercontent.com/78147880/172539141-008e8793-3f31-41e8-a6ba-535d25de6505.svg)
+![i_want_sleep-ДПС drawio (1)](https://user-images.githubusercontent.com/78147880/173043714-acfe11b7-2ff6-4ec9-8225-2037a2aecca6.svg)
 
 
-МОВ
 
-![i_want_sleep-МОВ drawio](https://user-images.githubusercontent.com/78147880/172539217-471719b8-ea2a-43c6-8b22-bd4e052ef29b.svg)
+МВО
+
+![i_want_sleep-МВО drawio](https://user-images.githubusercontent.com/78147880/173043763-3c6c15dc-d8bb-48ca-9798-b608b8848107.svg)
 
 
 Канал управления
 
-![i_want_sleep-Канал управления drawio](https://user-images.githubusercontent.com/78147880/172539260-85ebedb2-fe6c-4b8e-9a15-62ead35c3ea6.svg)
+![i_want_sleep-Канал управления drawio (1)](https://user-images.githubusercontent.com/78147880/173043856-38599f33-7a82-4042-899c-1505a068774c.svg)
+
 
 
 ДПДД
 
-![i_want_sleep-ДПДД drawio](https://user-images.githubusercontent.com/78147880/172539280-5d4464fd-8c3c-42f7-9602-2665ab067b00.svg)
+![i_want_sleep-ДПДД drawio (1)](https://user-images.githubusercontent.com/78147880/173043916-dc8278ea-f9c8-4bab-92f0-7c6a8438331f.svg)
+
 
 
 
