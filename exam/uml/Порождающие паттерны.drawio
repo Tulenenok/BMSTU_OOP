@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-06-10T18:41:44.960Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36" etag="y0ugkNbSrl5qfabDmjQc" version="19.0.3" type="github">
-  <diagram id="wLGAQCGHGHLKz0kfwaSM" name="Creator">
-    <mxGraphModel dx="1511" dy="784" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+<mxfile host="app.diagrams.net" modified="2022-06-10T19:23:21.725Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36" etag="LCOHljOP1LERi0gyxjTr" version="19.0.3" type="github">
+  <diagram id="wLGAQCGHGHLKz0kfwaSM" name="Фабричный метод">
+    <mxGraphModel dx="1099" dy="570" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
