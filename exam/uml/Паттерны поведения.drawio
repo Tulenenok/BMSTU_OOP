@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-12T15:25:06.160Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36" etag="WYA2AXFVyhrJogPNmoW4" version="19.0.3" type="github" pages="9">
+<mxfile host="app.diagrams.net" modified="2022-06-12T15:28:00.123Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36" etag="O1E1MwzdijyR0iwGjLiA" version="19.0.3" type="github" pages="10">
   <diagram id="JjB5pV8MMW293R93ijJJ" name="Стратегия">
     <mxGraphModel dx="545" dy="583" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -362,7 +362,7 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="m_41gsxGDWD1akd56TVK" name="Шаблонный метож">
+  <diagram id="m_41gsxGDWD1akd56TVK" name="Шаблонный метод">
     <mxGraphModel dx="1416" dy="1516" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
@@ -402,8 +402,22 @@
         <mxCell id="zXHP8zq8yIqSKDSEpPgx-9" value="Механизмы&lt;br&gt;(что использует)&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="195" y="280" width="120" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="-mmRehVo1_neSJku82YJ-1" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#E6E6E6;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+        <mxCell id="-mmRehVo1_neSJku82YJ-1" value="&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#E6E6E6;fillColor=none;strokeColor=none;" vertex="1" parent="1">
           <mxGeometry x="10" y="50" width="400" height="340" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="lkvLmz95ky3SOe0o0dBH" name="Шаблонные метод 2">
+    <mxGraphModel dx="545" dy="583" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="yjGHnQ6synzvJa-uu8u7-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;span style=&quot;background-color: rgb(204, 255, 255);&quot;&gt;&lt;b&gt;Method&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ part1()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;...&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ partN()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+templateMethod()&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="150" width="120" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ByktAcvp0vP8FJS9xAyx-1" value="&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#E6E6E6;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="90" y="120" width="190" height="180" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
