@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-12T10:33:41.088Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36" etag="qwSKEzD6gppd5GIka7M5" version="19.0.3" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2022-06-12T12:19:14.169Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36" etag="W8ktl1nJCWZKs2bi5_Yz" version="19.0.3" type="github" pages="5">
   <diagram id="wLGAQCGHGHLKz0kfwaSM" name="Фабричный метод">
     <mxGraphModel dx="527" dy="553" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -174,7 +174,55 @@
           <mxGeometry x="310" y="100" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4yVi70xmYcm13GZGCrLz-1" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#E6E6E6;fillColor=none;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="120" y="90" width="440" height="310" as="geometry" />
+          <mxGeometry x="140" y="410" width="440" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="xvHUMc8_u6Yhdw-iIlJ5-1" value="" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;labelBackgroundColor=#E6E6E6;fillColor=#E6E6E6;" vertex="1" parent="1">
+          <mxGeometry x="340" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="fVe4WZY9Ib3JdvoG4DT-" name="Прототип">
+    <mxGraphModel dx="703" dy="737" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hQqxfhDerJpSFWQb8jiD-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;span style=&quot;background-color: rgb(230, 255, 204);&quot;&gt;&lt;b&gt;Prototype&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ clone()&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="200" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="hQqxfhDerJpSFWQb8jiD-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=block;endFill=0;" edge="1" parent="1" source="hQqxfhDerJpSFWQb8jiD-2" target="hQqxfhDerJpSFWQb8jiD-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hQqxfhDerJpSFWQb8jiD-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b style=&quot;background-color: rgb(230, 230, 230);&quot;&gt;ConPrototype&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ clone()&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="360" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-f8YaGQNr7VbQrzJ9Vfs-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;startArrow=none;startFill=0;endArrow=classicThin;endFill=1;curved=1;" edge="1" parent="1" source="-f8YaGQNr7VbQrzJ9Vfs-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="230" y="230" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="115" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-f8YaGQNr7VbQrzJ9Vfs-1" value="База продукта, которому добавили метод clone." style="text;html=1;strokeColor=none;fillColor=#E6FFCC;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="50" y="275" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="UBrFbdASnJ1umfjGEGF6-1" value="&lt;b&gt;Прототип&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="110" y="150" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UBrFbdASnJ1umfjGEGF6-4" style="edgeStyle=orthogonalEdgeStyle;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;startArrow=none;startFill=0;endArrow=classicThin;endFill=1;" edge="1" parent="1" source="UBrFbdASnJ1umfjGEGF6-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="410" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="495" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UBrFbdASnJ1umfjGEGF6-2" value="Clone для базового класс возвращает указатель на себя. Clone для производных возвращает указатель на подобный объект" style="text;html=1;strokeColor=none;fillColor=#E6E6E6;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="420" y="260" width="150" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="2Rb_1T8i3kUWAfSwKA1H-1" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#E6E6E6;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="20" y="120" width="570" height="340" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
