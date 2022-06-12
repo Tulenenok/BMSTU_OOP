@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-06-12T14:17:05.496Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36" etag="lOz26kzWpztpvuysG8aq" version="19.0.3" type="github">
-  <diagram id="JjB5pV8MMW293R93ijJJ" name="Page-1">
-    <mxGraphModel dx="545" dy="851" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+<mxfile host="app.diagrams.net" modified="2022-06-12T14:26:16.262Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36" etag="lfpczOiMGoHR0WuUXfWq" version="19.0.3" type="github" pages="2">
+  <diagram id="JjB5pV8MMW293R93ijJJ" name="Стратегия">
+    <mxGraphModel dx="644" dy="1005" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -52,7 +52,41 @@
           <mxGeometry x="360" y="90" width="175" height="30" as="geometry" />
         </mxCell>
         <mxCell id="lF5-X0VvjZTqCBIyf01q-13" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#E6E6E6;fillColor=none;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="40" y="70" width="530" height="490" as="geometry" />
+          <mxGeometry x="35" y="60" width="530" height="490" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="JJ2BrJThihNrzCe61C3m" name="Команда">
+    <mxGraphModel dx="443" dy="691" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="b6-9qr5CkxC17r2EIQis-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;span style=&quot;background-color: rgb(204, 255, 255);&quot;&gt;&lt;b&gt;Command&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ execute()&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="230" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="b6-9qr5CkxC17r2EIQis-3" style="edgeStyle=orthogonalEdgeStyle;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=block;endFill=0;" edge="1" parent="1" source="b6-9qr5CkxC17r2EIQis-2" target="b6-9qr5CkxC17r2EIQis-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b6-9qr5CkxC17r2EIQis-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b style=&quot;background-color: rgb(230, 230, 230);&quot;&gt;ConCommand&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ execute()&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="400" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="giE6YjbtKTxQqXKBfAaB-2" style="edgeStyle=orthogonalEdgeStyle;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;startArrow=none;startFill=0;endArrow=classicThin;endFill=1;" edge="1" parent="1" source="giE6YjbtKTxQqXKBfAaB-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="260" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="210" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="giE6YjbtKTxQqXKBfAaB-1" value="Запрос или команда идет в виде объекта. Команда может нести данные, может нести что надо сделать (указатель на метод какого-то объекта, например)" style="text;html=1;strokeColor=none;fillColor=#CCFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="130" y="300" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="8VfBx_K3FqAEQvOqfp2r-1" value="&lt;b&gt;Команда&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="122.5" y="210" width="175" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PnWx-TX0CJ0pFecfocGK-1" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#E6E6E6;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="80" y="170" width="450" height="350" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
