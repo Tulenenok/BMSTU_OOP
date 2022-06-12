@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-12T15:19:14.717Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36" etag="rF1ulU5xxMD3jjhBn3EH" version="19.0.3" type="github" pages="8">
+<mxfile host="app.diagrams.net" modified="2022-06-12T15:25:06.160Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36" etag="WYA2AXFVyhrJogPNmoW4" version="19.0.3" type="github" pages="9">
   <diagram id="JjB5pV8MMW293R93ijJJ" name="Стратегия">
     <mxGraphModel dx="545" dy="583" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -358,6 +358,52 @@
         </mxCell>
         <mxCell id="MTkyOe8GbdQfgWcwVsVT-1" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#E6E6E6;fillColor=none;strokeColor=none;" vertex="1" parent="1">
           <mxGeometry x="30" y="100" width="670" height="400" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="m_41gsxGDWD1akd56TVK" name="Шаблонный метож">
+    <mxGraphModel dx="1416" dy="1516" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zXHP8zq8yIqSKDSEpPgx-2" style="edgeStyle=orthogonalEdgeStyle;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" edge="1" parent="1" source="zXHP8zq8yIqSKDSEpPgx-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zXHP8zq8yIqSKDSEpPgx-3" style="edgeStyle=orthogonalEdgeStyle;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="zXHP8zq8yIqSKDSEpPgx-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zXHP8zq8yIqSKDSEpPgx-4" style="edgeStyle=orthogonalEdgeStyle;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" edge="1" parent="1" source="zXHP8zq8yIqSKDSEpPgx-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zXHP8zq8yIqSKDSEpPgx-5" style="edgeStyle=orthogonalEdgeStyle;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" edge="1" parent="1" source="zXHP8zq8yIqSKDSEpPgx-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zXHP8zq8yIqSKDSEpPgx-1" value="&lt;b&gt;Метод&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=#CCFFFF;fillColor=#CCFFFF;" vertex="1" parent="1">
+          <mxGeometry x="130" y="170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zXHP8zq8yIqSKDSEpPgx-6" value="Управления&lt;br&gt;(положения, &lt;br&gt;инструкции)&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="200" y="80" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="zXHP8zq8yIqSKDSEpPgx-7" value="данные" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="170" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="zXHP8zq8yIqSKDSEpPgx-8" value="данные" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="270" y="170" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="zXHP8zq8yIqSKDSEpPgx-9" value="Механизмы&lt;br&gt;(что использует)&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="195" y="280" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-mmRehVo1_neSJku82YJ-1" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=#E6E6E6;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="10" y="50" width="400" height="340" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
